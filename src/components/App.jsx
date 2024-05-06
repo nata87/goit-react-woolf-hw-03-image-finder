@@ -30,11 +30,7 @@ export default class App extends Component {
       try {
         const {
           data: { hits, totalHits },
-        } = await getPhotoGallery(
-          this.state.query,
-          this.state.nextPage,
-          PER_PAGE
-        );
+        } = await getPhotoGallery(this.state.query, this.state.page, PER_PAGE);
         const newPhotos = hits.map(({ id, webformatURL, largeImageURL }) => {
           return { id, webformatURL, largeImageURL };
         });
